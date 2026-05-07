@@ -1,0 +1,20 @@
+# Env
+.env
+# Python
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+# Node
+node_modules/
+.next/
+dist/
+# Data
+data/imports/*
+data/outputs/*
+!data/imports/.gitkeep
+!data/outputs/.gitkeep
+# IDE
+.idea/
+.vscode/
+*.DS_Store

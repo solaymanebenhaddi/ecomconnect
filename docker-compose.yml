@@ -1,0 +1,61 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: ecomconnect_db
+    environment:
+      POSTGRES_DB: ecomconnect
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: change-me
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    networks:
+      - ecomconnect_net
+
+  redis:
+    image: redis:7-alpine
+    container_name: ecomconnect_redis
+    networks:
+      - ecomconnect_net
+
+  backend:
+    build: ./backend
+    container_name: ecomconnect_backend
+    ports:
+      - "8000:8000"
+    environment:
+      - DB_HOST=db
+      - REDIS_URL=redis://redis:6379/0
+    depends_on:
+      - db
+      - redis
+    networks:
+      - ecomconnect_net
+
+  frontend:
+    build: ./frontend
+    container_name: ecomconnect_frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_API_URL=http://backend:8000
+    depends_on:
+      - backend
+    networks:
+      - ecomconnect_net
+
+  mcp:
+    build: ./mcp-server
+    container_name: ecomconnect_mcp
+    ports:
+      - "9000:9000"
+    networks:
+      - ecomconnect_net
+
+networks:
+  ecomconnect_net:
+    driver: bridge
+
+volumes:
+  pg_data:
