@@ -1,0 +1,32 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git push:*)",
+      "Bash(git remote:*)",
+      "Bash(git branch:*)",
+      "Bash(alembic init:*)",
+      "Bash(alembic revision:*)",
+      "Bash(export POSTGRES_SERVER=localhost)",
+      "Bash(export POSTGRES_USER=postgres)",
+      "Bash(export POSTGRES_PASSWORD=postgres)",
+      "Bash(export POSTGRES_DB=postgres)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(pytest:*)",
+      "Bash(export PYTHONPATH=\"C:\\\\Users\\\\benjk\\\\Desktop\\\\ECOMMCONNECT\\\\ecomconnect\\\\backend\")",
+      "Bash(python -c \"from app.core.notifications.service import NotificationService; from unittest.mock import MagicMock; mock_db = MagicMock\\(\\); service = NotificationService\\(mock_db\\); tenant_id = 'org-123'; insight = service.create_insight\\(tenant_id, 'revenue', 'HIGH', 'Revenue drop!', 'Check logs'\\); print\\(f'Insight created: {insight is not None}'\\); print\\(f'DB add called: {mock_db.add.called}'\\)\")",
+      "Bash(python -c \"from app.models.models import Insight; print\\(Insight.__init__\\)\")",
+      "Bash(python -c \"from app.models.models import Insight; print\\(Insight\\)\")",
+      "Bash(python -c \"from app.models.models import Insight; print\\(Insight.__bases__\\)\")",
+      "Bash(python -c \"from app.models.models import TenantBase; print\\(TenantBase.__bases__\\)\")",
+      "Bash(python:*)",
+      "Bash(pip list:*)",
+      "Bash(PYTHONPATH=. python:*)",
+      "Bash(pip uninstall:*)",
+      "Bash(PYTHONPATH=. pytest:*)",
+      "Bash(python3:*)",
+      "Bash(pip install:*)",
+      "Bash(git init:*)"
+    ]
+  }
+}
