@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "project": "ecomconnect",
+  "agents_dir": ".claude/agents",
+  "hooks": {
+    "before_edit": ".claude/hooks/before-edit.sh",
+    "after_edit":  ".claude/hooks/after-edit.sh",
+    "before_commit": ".claude/hooks/before-commit.sh"
+  }
+}
